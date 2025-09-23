@@ -9,6 +9,7 @@ const qrTypes = [
   { key: "email", label: "✉️ Email" },
   { key: "wifi", label: "📶 WiFi" },
   { key: "vcard", label: "👤 vCard" },
+  { key: "pdf", label: "👤 PDF" },
 ];
 
 export default function QRCodeGenerator() {
@@ -78,9 +79,8 @@ export default function QRCodeGenerator() {
               setInput("");
               setQrValue("");
             }}
-            className={`px-4 py-2 rounded-lg whitespace-nowrap ${
-              type === item.key ? "bg-blue-600 text-white" : "bg-gray-200"
-            }`}
+            className={`px-4 py-2 rounded-lg whitespace-nowrap ${type === item.key ? "bg-blue-600 text-white" : "bg-gray-200"
+              }`}
           >
             {item.label}
           </button>
@@ -118,8 +118,16 @@ export default function QRCodeGenerator() {
         )}
         {type === "wifi" && (
           <div className="space-y-2">
-            <input type="text" placeholder="WiFi SSID" className="w-full border px-4 py-2 rounded-lg" />
-            <input type="password" placeholder="Password" className="w-full border px-4 py-2 rounded-lg" />
+            <input
+              type="text"
+              placeholder="WiFi SSID"
+              className="w-full border px-4 py-2 rounded-lg"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full border px-4 py-2 rounded-lg"
+            />
             <select className="w-full border px-4 py-2 rounded-lg">
               <option>WPA/WPA2</option>
               <option>WEP</option>
